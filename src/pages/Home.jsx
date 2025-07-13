@@ -1,3 +1,5 @@
+import { Music, Radio, Heart } from 'lucide-react'
+
 function Home() {
   return (
     <div className="home-page">
@@ -31,15 +33,15 @@ function Home() {
             <p>Reproductor fijo en la parte inferior para que no pierdas ni un momento de la mejor música paraguaya.</p>
             <div className="radio-features">
               <div className="radio-feature">
-                <span>🎵</span>
+                <Music size={18} />
                 <span>Rotación continua de música folclórica</span>
               </div>
               <div className="radio-feature">
-                <span>🎧</span>
+                <Radio size={18} />
                 <span>Calidad de audio premium</span>
               </div>
               <div className="radio-feature">
-                <span>📱</span>
+                <Heart size={18} />
                 <span>Acceso desde cualquier dispositivo</span>
               </div>
             </div>
@@ -50,15 +52,15 @@ function Home() {
       <section className="features">
         <div className="feature-grid">
           <div className="feature-card">
-            <h3>🎵 Música Tradicional</h3>
+            <h3><Music size={20} style={{display: 'inline', marginRight: '0.5rem'}} /> Música Tradicional</h3>
             <p>Polcas, guaranias, chamamés y toda la música que nos representa</p>
           </div>
           <div className="feature-card">
-            <h3>🎙️ En Vivo 24/7</h3>
+            <h3><Radio size={20} style={{display: 'inline', marginRight: '0.5rem'}} /> En Vivo 24/7</h3>
             <p>Transmisión continua con la mejor selección musical paraguaya</p>
           </div>
           <div className="feature-card">
-            <h3>🇵🇾 Cultura Guaraní</h3>
+            <h3><Heart size={20} style={{display: 'inline', marginRight: '0.5rem'}} /> Cultura Guaraní</h3>
             <p>Preservando y difundiendo nuestras raíces culturales</p>
           </div>
         </div>

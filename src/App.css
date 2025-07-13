@@ -1,3 +1,6 @@
+/* Import Google Fonts - Tendencias 2024-2025 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@400..900&family=Space+Grotesk:wght@300..700&family=Crimson+Pro:wght@200..900&display=swap');
+
 /* macOS Premium Design System - Paleta paraguaya modernizada */
 :root {
   /* Colores principales con toque premium */
@@ -309,6 +312,9 @@ body {
   font-size: var(--text-sm);
   letter-spacing: -0.01em;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .nav-link:hover {
@@ -536,8 +542,8 @@ body {
 .live-indicator {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 0.8rem;
+  gap: 0.5rem;
+  font-size: 0.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   background: linear-gradient(135deg, var(--rojo-paraguayo), #FF6B6B);
@@ -571,7 +577,7 @@ body {
 .player-controls {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.6);
   padding: 0.75rem;
   border-radius: var(--border-radius);
@@ -836,6 +842,12 @@ body {
   color: white;
 }
 
+.current-track-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .current-track-display h4 {
   font-size: 0.875rem;
   opacity: 0.8;
@@ -876,43 +888,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
-.control-btn-large, .play-btn-large {
-  background: var(--bg-primary);
+.play-btn-large {
+  background: linear-gradient(135deg, var(--azul-paraguayo), #4FC3F7);
+  color: white;
   border: none;
-  color: var(--gray-600);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-  box-shadow: var(--shadow-md);
-  font-size: 1.25rem;
-  width: 48px;
-  height: 48px;
-}
-
-.play-btn-large {
-  background: linear-gradient(135deg, var(--azul-paraguayo), #4FC3F7);
-  color: white;
-  font-size: 1.5rem;
-  width: 60px;
-  height: 60px;
   box-shadow: var(--shadow-lg);
-}
-
-.control-btn-large:hover {
-  background: var(--gray-100);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  width: 80px;
+  height: 80px;
 }
 
 .play-btn-large:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
   box-shadow: var(--shadow-xl);
 }
 
@@ -974,8 +969,8 @@ body {
   color: var(--gray-800);
 }
 
-.ad-content span {
-  font-size: 1.25rem;
+.ad-content svg {
+  color: var(--rojo-paraguayo);
 }
 
 .ad-text {
@@ -1009,6 +1004,31 @@ body {
 .ad-button:hover {
   background: var(--gray-700);
   transform: translateY(-1px);
+}
+
+.expand-btn-large {
+  background: var(--bg-primary);
+  border: none;
+  color: var(--gray-600);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--text-sm);
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  font-weight: var(--font-medium);
+}
+
+.expand-btn-large:hover {
+  background: var(--gray-100);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 /* Pages Premium Layout */
@@ -1485,9 +1505,9 @@ body {
   transform: translateX(4px);
 }
 
-.radio-feature span:first-child {
-  font-size: 1.25rem;
-  min-width: 24px;
+.radio-feature svg {
+  color: var(--azul-paraguayo);
+  min-width: 18px;
 }
 
 .live-dot-large {
@@ -1560,6 +1580,15 @@ body {
   .nav-link {
     padding: 0.625rem 1rem;
     font-size: 0.8rem;
+    gap: 0.375rem;
+  }
+  
+  .nav-link span {
+    display: none;
+  }
+  
+  .nav {
+    gap: 0.125rem;
   }
   
   .hero {
@@ -1740,16 +1769,9 @@ body {
     gap: 0.75rem;
   }
   
-  .control-btn-large, .play-btn-large {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-  
   .play-btn-large {
-    width: 50px;
-    height: 50px;
-    font-size: 1.25rem;
+    width: 60px;
+    height: 60px;
   }
   
   .ad-banner {

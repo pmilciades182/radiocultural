@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Home, Calendar, Heart, Mail } from 'lucide-react'
 import RadioPlayer from './RadioPlayer'
 
 function Layout({ children }) {
@@ -11,10 +12,22 @@ function Layout({ children }) {
             <p className="logo-subtitle">Desde la ciudad de Limpio - Paraguay</p>
           </div>
           <nav className="nav">
-            <Link to="/" className="nav-link">Inicio</Link>
-            <Link to="/programacion" className="nav-link">Programación</Link>
-            <Link to="/donaciones" className="nav-link">Donaciones</Link>
-            <Link to="/contacto" className="nav-link">Contacto</Link>
+            <Link to="/" className="nav-link">
+              <Home size={16} />
+              <span>Inicio</span>
+            </Link>
+            <Link to="/programacion" className="nav-link">
+              <Calendar size={16} />
+              <span>Programación</span>
+            </Link>
+            <Link to="/donaciones" className="nav-link">
+              <Heart size={16} />
+              <span>Donaciones</span>
+            </Link>
+            <Link to="/contacto" className="nav-link">
+              <Mail size={16} />
+              <span>Contacto</span>
+            </Link>
           </nav>
         </div>
       </header>

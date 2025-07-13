@@ -1,23 +1,23 @@
 import { useState, useRef, useEffect } from 'react'
+import { 
+  Play, 
+  Pause, 
+  Volume2, 
+  Radio,
+  Music,
+  Maximize2,
+  Minimize2,
+  Heart
+} from 'lucide-react'
 
 function RadioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [currentTrack, setCurrentTrack] = useState(0)
   const [volume, setVolume] = useState(0.7)
   const [isExpanded, setIsExpanded] = useState(false)
   const audioRef = useRef(null)
 
-  const tracks = [
-    '/audio/paraguayan-folk-1.mp3',
-    '/audio/paraguayan-folk-2.mp3',
-    '/audio/paraguayan-folk-3.mp3'
-  ]
-
-  const trackNames = [
-    'Música Folclórica Paraguaya 1',
-    'Música Folclórica Paraguaya 2', 
-    'Música Folclórica Paraguaya 3'
-  ]
+  const radioStream = '/audio/radio-cultural-stream.mp3' // Stream único
+  const currentProgram = 'Música Folclórica Paraguaya en Vivo'
 
   useEffect(() => {
     if (audioRef.current) {
@@ -26,24 +26,11 @@ function RadioPlayer() {
   }, [volume])
 
   useEffect(() => {
-    const audio = audioRef.current
-    if (audio) {
-      const handleEnded = () => {
-        setCurrentTrack((prev) => (prev + 1) % tracks.length)
-      }
-      audio.addEventListener('ended', handleEnded)
-      return () => audio.removeEventListener('ended', handleEnded)
-    }
-  }, [tracks.length])
-
-  useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.src = tracks[currentTrack]
-      if (isPlaying) {
-        audioRef.current.play()
-      }
+      audioRef.current.src = radioStream
+      audioRef.current.loop = true // Stream continuo
     }
-  }, [currentTrack, tracks])
+  }, [])
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -56,23 +43,17 @@ function RadioPlayer() {
     }
   }
 
-  const nextTrack = () => {
-    setCurrentTrack((prev) => (prev + 1) % tracks.length)
-  }
-
-  const prevTrack = () => {
-    setCurrentTrack((prev) => (prev - 1 + tracks.length) % tracks.length)
-  }
+  // Sin navegación de tracks - solo radio stream continuo
 
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded)
   }
 
-  return (
-    <div className={`radio-player-container ${isExpanded ? 'expanded' : ''}`}>
-      <audio ref={audioRef} />
-      
-      {isExpanded && (
+  if (isExpanded) {
+    return (
+      <div className="radio-player-container expanded">
+        <audio ref={audioRef} />
+        
         <div className="expanded-player">
           <div className="video-simulation">
             <div className="video-content">
@@ -85,6 +66,7 @@ function RadioPlayer() {
                   <div className="wave wave-4"></div>
                 </div>
                 <div className="radio-logo">
+                  <Radio size={32} color="white" />
                   <h3>Radio Cultural</h3>
                   <div className="live-indicator-video">
                     <span className="live-dot"></span>
@@ -95,8 +77,11 @@ function RadioPlayer() {
             </div>
             <div className="video-overlay">
               <div className="current-track-display">
-                <h4>Ahora suena:</h4>
-                <p>{trackNames[currentTrack]}</p>
+                <Music size={16} />
+                <div>
+                  <h4>En vivo:</h4>
+                  <p>{currentProgram}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -104,21 +89,19 @@ function RadioPlayer() {
           <div className="expanded-controls">
             <div className="player-info-expanded">
               <div className="track-info">
-                <div className="track-name-large">{trackNames[currentTrack]}</div>
+                <div className="track-name-large">{currentProgram}</div>
                 <div className="artist-name">Radio Cultural - Limpio, Paraguay</div>
               </div>
             </div>
             
             <div className="main-controls">
-              <button onClick={prevTrack} className="control-btn-large">⏮</button>
               <button onClick={togglePlay} className="play-btn-large">
-                {isPlaying ? '⏸' : '▶'}
+                {isPlaying ? <Pause size={28} /> : <Play size={28} />}
               </button>
-              <button onClick={nextTrack} className="control-btn-large">⏭</button>
             </div>
             
             <div className="expanded-volume">
-              <span>🔊</span>
+              <Volume2 size={18} />
               <input
                 type="range"
                 min="0"
@@ -130,11 +113,16 @@ function RadioPlayer() {
               />
               <span className="volume-value">{Math.round(volume * 100)}%</span>
             </div>
+            
+            <button onClick={toggleExpanded} className="expand-btn-large">
+              <Minimize2 size={18} />
+              <span>Minimizar</span>
+            </button>
           </div>
           
           <div className="ad-banner">
             <div className="ad-content">
-              <span>📢</span>
+              <Heart size={20} />
               <div className="ad-text">
                 <strong>Apoyá Radio Cultural</strong>
                 <p>Tu donación mantiene viva nuestra cultura</p>
@@ -143,27 +131,32 @@ function RadioPlayer() {
             </div>
           </div>
         </div>
-      )}
+      </div>
+    )
+  }
+  
+  return (
+    <div className="radio-player-container">
+      <audio ref={audioRef} />
       
       <div className="radio-player">
         <div className="player-info">
           <div className="live-indicator">
             <span className="live-dot"></span>
-            EN VIVO
+            <Radio size={14} />
+            <span>EN VIVO</span>
           </div>
-          <div className="track-name">{trackNames[currentTrack]}</div>
+          <div className="track-name">{currentProgram}</div>
         </div>
         
         <div className="player-controls">
-          <button onClick={prevTrack} className="control-btn">⏮</button>
           <button onClick={togglePlay} className="play-btn">
-            {isPlaying ? '⏸' : '▶'}
+            {isPlaying ? <Pause size={20} /> : <Play size={20} />}
           </button>
-          <button onClick={nextTrack} className="control-btn">⏭</button>
         </div>
         
         <div className="volume-control">
-          <span>🔊</span>
+          <Volume2 size={16} />
           <input
             type="range"
             min="0"
@@ -176,7 +169,7 @@ function RadioPlayer() {
         </div>
         
         <button onClick={toggleExpanded} className="expand-btn">
-          {isExpanded ? '🔽' : '🔼'}
+          <Maximize2 size={16} />
         </button>
       </div>
     </div>
