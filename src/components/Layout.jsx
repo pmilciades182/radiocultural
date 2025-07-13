@@ -6,7 +6,10 @@ function Layout({ children }) {
     <div className="layout">
       <header className="header">
         <div className="container">
-          <h1 className="logo">Radio Cultural Paraguay</h1>
+          <div className="logo">
+            <h1 className="logo-title">Radio Cultural</h1>
+            <p className="logo-subtitle">Desde la ciudad de Limpio - Paraguay</p>
+          </div>
           <nav className="nav">
             <Link to="/" className="nav-link">Inicio</Link>
             <Link to="/programacion" className="nav-link">Programación</Link>

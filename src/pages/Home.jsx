@@ -2,7 +2,7 @@ function Home() {
   return (
     <div className="home-page">
       <section className="hero">
-        <h1>Bienvenidos a Radio Cultural Paraguay</h1>
+        <h1>Bienvenidos a Radio Cultural</h1>
         <p className="hero-subtitle">
           La voz de nuestra cultura guaraní - Transmitiendo las tradiciones paraguayas al mundo
         </p>
@@ -12,6 +12,38 @@ function Home() {
             cultural de nuestro país. Radio Cultural Paraguay preserva y difunde nuestras 
             tradiciones musicales las 24 horas del día.
           </p>
+        </div>
+      </section>
+
+      <section className="radio-showcase">
+        <div className="radio-showcase-card">
+          <div className="radio-showcase-header">
+            <div className="live-indicator-large">
+              <span className="live-dot-large"></span>
+              <div>
+                <h3>¡Estamos en vivo!</h3>
+                <p>Escuchá ahora la mejor música paraguaya</p>
+              </div>
+            </div>
+          </div>
+          <div className="radio-showcase-content">
+            <h3>Tu radio cultural está siempre contigo</h3>
+            <p>Reproductor fijo en la parte inferior para que no pierdas ni un momento de la mejor música paraguaya.</p>
+            <div className="radio-features">
+              <div className="radio-feature">
+                <span>🎵</span>
+                <span>Rotación continua de música folclórica</span>
+              </div>
+              <div className="radio-feature">
+                <span>🎧</span>
+                <span>Calidad de audio premium</span>
+              </div>
+              <div className="radio-feature">
+                <span>📱</span>
+                <span>Acceso desde cualquier dispositivo</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
