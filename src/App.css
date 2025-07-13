@@ -1,0 +1,644 @@
+/* Paleta de colores tradicionales paraguayos */
+:root {
+  --rojo-paraguayo: #E30613;
+  --azul-paraguayo: #0038A8;
+  --blanco: #FFFFFF;
+  --amarillo-dorado: #FFD700;
+  --verde-paraguayo: #00A651;
+  --gris-claro: #F5F5F5;
+  --gris-oscuro: #333333;
+  --sombra: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--gris-claro);
+  color: var(--gris-oscuro);
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Layout */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 120px;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--rojo-paraguayo), var(--azul-paraguayo));
+  color: var(--blanco);
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px var(--sombra);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+/* Home Page */
+.hero {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(45deg, var(--blanco), var(--gris-claro));
+  border-radius: 15px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 15px var(--sombra);
+}
+
+.hero h1 {
+  color: var(--rojo-paraguayo);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px var(--sombra);
+}
+
+.hero-subtitle {
+  color: var(--azul-paraguayo);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--gris-oscuro);
+}
+
+.features {
+  margin: 3rem 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--sombra);
+  text-align: center;
+  border-left: 4px solid var(--rojo-paraguayo);
+}
+
+.feature-card h3 {
+  color: var(--azul-paraguayo);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.about {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--sombra);
+  margin-top: 3rem;
+}
+
+.about h2 {
+  color: var(--rojo-paraguayo);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Radio Player */
+.radio-player-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, var(--azul-paraguayo), var(--rojo-paraguayo));
+  color: var(--blanco);
+  box-shadow: 0 -2px 15px var(--sombra);
+}
+
+.radio-player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 200px;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--amarillo-dorado);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.track-name {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.control-btn, .play-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--blanco);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.play-btn {
+  background: var(--amarillo-dorado);
+  color: var(--gris-oscuro);
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+}
+
+.control-btn:hover, .play-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.play-btn:hover {
+  background: var(--amarillo-dorado);
+  transform: scale(1.05);
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.volume-slider {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--amarillo-dorado);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Donaciones Page */
+.donaciones-page, .contacto-page, .programacion-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.donaciones-page h1, .contacto-page h1, .programacion-page h1 {
+  color: var(--rojo-paraguayo);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.donation-intro, .contact-intro, .programming-intro {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--sombra);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.donation-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.donation-card {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--sombra);
+  text-align: center;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.donation-card.featured {
+  border-color: var(--amarillo-dorado);
+  background: linear-gradient(145deg, var(--blanco), #fffef5);
+}
+
+.donation-card h3 {
+  color: var(--azul-paraguayo);
+  margin-bottom: 1rem;
+}
+
+.amount-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.amount-btn {
+  background: var(--azul-paraguayo);
+  color: var(--blanco);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.amount-btn:hover {
+  background: var(--rojo-paraguayo);
+}
+
+.monthly-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.monthly-option {
+  background: var(--gris-claro);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.monthly-option strong {
+  color: var(--rojo-paraguayo);
+}
+
+/* Contacto Page */
+.contact-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  margin: 2rem 0;
+}
+
+.contact-info, .contact-form-section {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--sombra);
+}
+
+.contact-item {
+  margin-bottom: 2rem;
+}
+
+.contact-item h3 {
+  color: var(--azul-paraguayo);
+  margin-bottom: 0.5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: var(--gris-oscuro);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 2px solid var(--gris-claro);
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--azul-paraguayo);
+}
+
+.submit-btn {
+  background: var(--rojo-paraguayo);
+  color: var(--blanco);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: var(--azul-paraguayo);
+}
+
+.faq {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--sombra);
+  margin-top: 2rem;
+}
+
+.faq h2 {
+  color: var(--rojo-paraguayo);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.faq-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+.faq-item h3 {
+  color: var(--azul-paraguayo);
+  margin-bottom: 0.5rem;
+}
+
+/* Programacion Page */
+.schedule-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.schedule-item {
+  background: var(--blanco);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--sombra);
+  overflow: hidden;
+  border-left: 4px solid var(--rojo-paraguayo);
+}
+
+.time-slot {
+  background: var(--azul-paraguayo);
+  color: var(--blanco);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.program-info {
+  padding: 1.5rem;
+}
+
+.program-info h3 {
+  color: var(--rojo-paraguayo);
+  margin-bottom: 0.5rem;
+}
+
+.special-days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.special-day-card {
+  background: var(--blanco);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--sombra);
+  text-align: center;
+  border-top: 4px solid var(--amarillo-dorado);
+}
+
+.special-day-card h3 {
+  color: var(--azul-paraguayo);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.special-day-card h4 {
+  color: var(--rojo-paraguayo);
+  margin-bottom: 0.75rem;
+}
+
+.music-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.category {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--sombra);
+}
+
+.category h3 {
+  color: var(--azul-paraguayo);
+  margin-bottom: 1rem;
+}
+
+.category ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.category li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gris-claro);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.category li:before {
+  content: "♪";
+  color: var(--rojo-paraguayo);
+  position: absolute;
+  left: 0;
+}
+
+.live-indicator-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, var(--rojo-paraguayo), var(--azul-paraguayo));
+  color: var(--blanco);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.live-dot-large {
+  width: 20px;
+  height: 20px;
+  background-color: var(--amarillo-dorado);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+/* Footer */
+.footer {
+  background: var(--gris-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav {
+    justify-content: center;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .radio-player {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .schedule-item {
+    grid-template-columns: 1fr;
+  }
+  
+  .time-slot {
+    text-align: center;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}
