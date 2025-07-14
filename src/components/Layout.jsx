@@ -1,8 +1,48 @@
-import { Link } from 'react-router-dom'
-import { Home, Calendar, Heart, Mail } from 'lucide-react'
-import RadioPlayer from './RadioPlayer'
+import { useState, useEffect, useCallback } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Home, Calendar, Heart, Mail } from 'lucide-react';
+import RadioPlayer from './RadioPlayer';
 
 function Layout({ children }) {
+  const [isMinimized, setIsMinimized] = useState(false);
+  const location = useLocation();
+
+  // Efecto unificado para manejar la minimización de forma inteligente
+  useEffect(() => {
+    const handleScrollAndResize = () => {
+      const isSmallScreen = window.innerWidth <= 768;
+      if (!isSmallScreen) {
+        setIsMinimized(false);
+        return;
+      }
+
+      // Lógica de estado mejorada para evitar parpadeos
+      setIsMinimized(prevIsMinimized => {
+        const isScrolledPastThreshold = window.scrollY > 50;
+        // Si ya está minimizado, solo se expande al volver al inicio
+        if (prevIsMinimized) {
+          return window.scrollY > 10; // Un pequeño umbral para evitar expansiones accidentales
+        }
+        // Si está expandido, se minimiza al pasar el umbral
+        return isScrolledPastThreshold;
+      });
+    };
+
+    // Al cambiar de ruta, forzar la minimización en móviles
+    if (window.innerWidth <= 768) {
+      setIsMinimized(true);
+    }
+    window.scrollTo(0, 0);
+
+    window.addEventListener('scroll', handleScrollAndResize);
+    window.addEventListener('resize', handleScrollAndResize);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollAndResize);
+      window.removeEventListener('resize', handleScrollAndResize);
+    };
+  }, [location.pathname]);
+
   return (
     <div className="layout">
       <header className="header">
@@ -39,7 +79,7 @@ function Layout({ children }) {
       </main>
       
       <div className="radio-player-fixed">
-        <RadioPlayer />
+        <RadioPlayer isMinimized={isMinimized} />
       </div>
       
       <footer className="footer">
