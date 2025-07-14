@@ -22,7 +22,7 @@ function Layout({ children }) {
             </Link>
             <Link to="/donaciones" className="nav-link">
               <Heart size={16} />
-              <span>Donaciones</span>
+              <span>Doná</span>
             </Link>
             <Link to="/contacto" className="nav-link">
               <Mail size={16} />
