@@ -12,34 +12,32 @@ function Donaciones() {
           <p className="hero-subtitle">Desde Limpio, Paraguay - Para el mundo</p>
           <p className="hero-description">
             Tu apoyo mantiene viva la música paraguaya y nos ayuda a llevar nuestra cultura 
-            a cada rincón del planeta. Cada donación fortalece nuestras raíces musicales.
+            a cada rincón del planeta. Cada donación en Guaraníes, no importa el tamaño, es un pilar fundamental para nuestra misión.
           </p>
         </div>
         <div className="hero-stats">
           <div className="stat-item">
-            <Radio size={32} />
-            <span className="stat-number">24/7</span>
-            <span className="stat-label">En vivo</span>
+            <Users size={24} />
+            <span>+10.000 Oyentes</span>
           </div>
           <div className="stat-item">
-            <Music size={32} />
-            <span className="stat-number">1000+</span>
-            <span className="stat-label">Canciones</span>
+            <Globe size={24} />
+            <span>+50 Países</span>
           </div>
           <div className="stat-item">
-            <Globe size={32} />
-            <span className="stat-number">50+</span>
-            <span className="stat-label">Países</span>
+            <Headphones size={24} />
+            <span>24/7 al Aire</span>
           </div>
         </div>
       </div>
 
-      <section className="donation-options">
-        <div className="section-header">
-          <h2>Elegí tu forma de apoyo</h2>
-          <p>Cada contribución, sin importar el monto, hace la diferencia</p>
-        </div>
-        
+      <section className="donation-section">
+        <h2>Hacé tu Aporte a la Cultura</h2>
+        <p className="section-intro">
+          Elegí la forma de apoyar que mejor se adapte a vos. 
+          Tu donación, no importa el tamaño, es un pilar fundamental para nuestra misión.
+        </p>
+
         <div className="donation-cards">
           <div className="donation-card single">
             <div className="card-header">
@@ -47,59 +45,80 @@ function Donaciones() {
               <h3>Donación Única</h3>
             </div>
             <p>Una contribución especial cuando sientas el llamado cultural</p>
-            <div className="amount-grid">
-              <button className="amount-btn">$5 USD</button>
-              <button className="amount-btn">$15 USD</button>
-              <button className="amount-btn">$30 USD</button>
-              <button className="amount-btn popular">$50 USD</button>
-              <button className="amount-btn">$100 USD</button>
+            <div className="amount-buttons">
+              <button className="amount-btn">Gs. 30.000</button>
+              <button className="amount-btn">Gs. 100.000</button>
+              <button className="amount-btn">Gs. 200.000</button>
+              <button className="amount-btn popular">Gs. 350.000</button>
+              <button className="amount-btn">Gs. 750.000</button>
               <button className="amount-btn custom">Monto personalizado</button>
             </div>
             <button className="donate-button">Donar Ahora</button>
           </div>
           
           <div className="donation-card monthly featured">
-
             <div className="card-header">
               <Users size={40} className="card-icon" />
               <h3>Apoyo Mensual</h3>
             </div>
             <p>Convertite en guardián permanente de nuestra cultura</p>
-            <div className="monthly-tiers">
+            <div className="tiers">
               <div className="tier">
-                <div className="tier-price">$5 USD/mes</div>
-                <div className="tier-name">Amigo Cultural</div>
+                <h4><Users size={20} /> Amigo/a de la Radio</h4>
+                <div className="tier-price">Gs. 30.000/mes</div>
                 <div className="tier-benefits">
                   <ul>
-                    <li>Acceso a contenido exclusivo</li>
-                    <li>Newsletter mensual</li>
+                    <li>Mención en la web</li>
+                    <li>Acceso a sorteos</li>
                   </ul>
                 </div>
               </div>
               <div className="tier popular">
-                <div className="tier-price">$15 USD/mes</div>
-                <div className="tier-name">Guardián Cultural</div>
+                <h4><Radio size={20} /> Socio/a Cultural</h4>
+                <div className="tier-price">Gs. 100.000/mes</div>
                 <div className="tier-benefits">
                   <ul>
-                    <li>Todo lo anterior</li>
-                    <li>Reconocimiento en la radio</li>
-                    <li>Requests prioritarios</li>
+                    <li>Mención en la web</li>
+                    <li>Acceso a sorteos</li>
+                    <li>Programa dedicado</li>
                   </ul>
                 </div>
               </div>
               <div className="tier">
-                <div className="tier-price">$30 USD/mes</div>
-                <div className="tier-name">Embajador Cultural</div>
+                <h4><Heart size={20} /> Protector/a del Folclore</h4>
+                <div className="tier-price">Gs. 200.000/mes</div>
                 <div className="tier-benefits">
                   <ul>
-                    <li>Todo lo anterior</li>
-                    <li>Merchandising exclusivo</li>
-                    <li>Acceso a eventos exclusivos</li>
+                    <li>Mención en la web</li>
+                    <li>Acceso a sorteos</li>
+                    <li>Programa dedicado</li>
+                    <li>Regalo exclusivo</li>
                   </ul>
                 </div>
               </div>
             </div>
             <button className="donate-button">Suscribirme</button>
+          </div>
+        </div>
+      </section>
+
+      <section className="why-donate">
+        <h2>¿Por qué tu apoyo es tan importante?</h2>
+        <div className="reasons-grid">
+          <div className="reason-card">
+            <Music size={32} />
+            <h3>Preservar la Música</h3>
+            <p>Aseguramos que las futuras generaciones puedan disfrutar de nuestro tesoro musical.</p>
+          </div>
+          <div className="reason-card">
+            <Radio size={32} />
+            <h3>Mantener la Transmisión</h3>
+            <p>Cubrimos los costos de servidores y licencias para seguir al aire 24/7 sin interrupciones.</p>
+          </div>
+          <div className="reason-card">
+            <Globe size={32} />
+            <h3>Expandir Fronteras</h3>
+            <p>Llegamos a paraguayos en todo el mundo, conectándolos con sus raíces a través de la música.</p>
           </div>
         </div>
       </section>

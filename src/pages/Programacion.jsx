@@ -1,22 +1,23 @@
 function Programacion() {
   const horarios = [
-    { hora: "00:00 - 06:00", programa: "Madrugada Cultural", descripcion: "Música suave paraguaya para acompañar la noche" },
-    { hora: "06:00 - 09:00", programa: "Amanecer Guaraní", descripcion: "Comenzá el día con las mejores polcas y guaranias" },
-    { hora: "09:00 - 12:00", programa: "Mañana Folclórica", descripcion: "Lo mejor del folclore paraguayo" },
-    { hora: "12:00 - 15:00", programa: "Mediodía Musical", descripcion: "Clásicos paraguayos para el almuerzo" },
-    { hora: "15:00 - 18:00", programa: "Tarde Tradicional", descripcion: "Música tradicional y regional" },
-    { hora: "18:00 - 21:00", programa: "Noche Cultural", descripcion: "Los grandes éxitos de la música paraguaya" },
-    { hora: "21:00 - 00:00", programa: "Serenata Nocturna", descripcion: "Baladas y música romántica paraguaya" }
+    { hora: "00:00 - 05:00", programa: "Noches de Purahéi", descripcion: "Música instrumental y cantada para la calma nocturna." },
+    { hora: "05:00 - 07:00", programa: "Amanecer en el Campo", descripcion: "Las primeras polcas y guaranias para empezar el día con energía." },
+    { hora: "07:00 - 10:00", programa: "La Mañana Cultural", descripcion: "Un viaje por los clásicos del folclore, con datos históricos y culturales." },
+    { hora: "10:00 - 13:00", programa: "Corazón de Guarania", descripcion: "Las guaranias más emotivas y las historias detrás de sus letras." },
+    { hora: "13:00 - 16:00", programa: "Siesta de Chamamé y Polka", descripcion: "Ritmos alegres para levantar el espíritu de la tarde." },
+    { hora: "16:00 - 19:00", programa: "Atardecer Paraguayo", descripcion: "Un recorrido por los paisajes sonoros del país, desde el Chaco hasta el Paraná." },
+    { hora: "19:00 - 21:00", programa: "Joyas del Folclore", descripcion: "Las grabaciones históricas y los artistas que marcaron una época." },
+    { hora: "21:00 - 00:00", programa: "Serenata bajo las Estrellas", descripcion: "Las canciones más románticas y poéticas para cerrar la jornada." }
   ]
 
   const diasEspeciales = [
-    { dia: "Lunes", especial: "Especial Eladio Martínez", descripcion: "Dedicado al gran compositor paraguayo" },
-    { dia: "Martes", especial: "Voces Femeninas", descripcion: "Homenaje a las cantantes paraguayas" },
-    { dia: "Miércoles", especial: "Folclore Regional", descripcion: "Música de todo el interior del país" },
-    { dia: "Jueves", especial: "Arpa Paraguaya", descripcion: "El instrumento nacional en primer plano" },
-    { dia: "Viernes", especial: "Nuevos Talentos", descripcion: "Artistas emergentes de la música paraguaya" },
-    { dia: "Sábado", especial: "Clásicos Eternos", descripcion: "Los grandes hits de todos los tiempos" },
-    { dia: "Domingo", especial: "Familia Cultural", descripcion: "Música para toda la familia paraguaya" }
+    { dia: "Lunes", especial: "Lunes de Leyendas", descripcion: "Homenaje a los grandes compositores como Emiliano R. Fernández y Agustín Barboza." },
+    { dia: "Martes", especial: "Martes de Arpas", descripcion: "El arpa paraguaya como protagonista, con los mejores intérpretes." },
+    { dia: "Miércoles", especial: "Miércoles de Frontera", descripcion: "Explorando el chamamé y la música de la región del Litoral." },
+    { dia: "Jueves", especial: "Jueves de Voces Nuevas", descripcion: "Un espacio para los talentos emergentes y la polka fusión." },
+    { dia: "Viernes", especial: "Viernes de Peña", descripcion: "La música más festiva para empezar el fin de semana, con polkas y galopas." },
+    { dia: "Sábado", especial: "Sábado de Clásicos", descripcion: "Un viaje por las canciones que todo paraguayo lleva en el corazón." },
+    { dia: "Domingo", especial: "Domingo en Familia", descripcion: "Música para compartir, con historias, anécdotas y la participación de la audiencia." }
   ]
 
   return (
