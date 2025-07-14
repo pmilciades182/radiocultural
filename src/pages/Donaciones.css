@@ -260,8 +260,9 @@
 
 .amount-btn.custom {
   grid-column: 1 / -1;
-  border-color: var(--rojo-paraguayo);
-  color: var(--rojo-paraguayo);
+  background: var(--rojo-paraguayo);
+  border: 2px solid var(--rojo-paraguayo);
+  color: white;
 }
 
 .amount-btn.custom:hover {
