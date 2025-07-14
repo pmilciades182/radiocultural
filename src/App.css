@@ -1481,6 +1481,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: var(--shadow-lg);
+  margin-top: 10px;
 }
 
 .donate-button:hover {
@@ -2208,6 +2209,67 @@ body {
   color: var(--color-text-secondary);
 }
 
+/* Estilos para la sección 'Por qué donar' */
+.why-donate {
+  padding: 4rem 0;
+  background-color: var(--color-surface);
+  margin-top: 4rem;
+}
+
+.why-donate h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--color-text-primary);
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.reason-card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-large);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.reason-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.reason-card .icon-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--color-primary-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--color-primary);
+}
+
+.reason-card h3 {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.reason-card p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
 @media (max-width: 1024px) {
   .hero {
     padding: 3rem 1.5rem;
@@ -2397,6 +2459,37 @@ body {
   
   .container {
     padding: 0 1rem;
+  }
+
+  /* Estilos responsivos para la página de donaciones */
+  .donation-hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .donation-hero .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0;
+  }
+
+  .donation-cards {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .amount-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .tiers {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
   }
 }
 

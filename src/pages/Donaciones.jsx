@@ -106,17 +106,17 @@ function Donaciones() {
         <h2>¿Por qué tu apoyo es tan importante?</h2>
         <div className="reasons-grid">
           <div className="reason-card">
-            <Music size={32} />
+            <div className="icon-container"><Music size={32} /></div>
             <h3>Preservar la Música</h3>
             <p>Aseguramos que las futuras generaciones puedan disfrutar de nuestro tesoro musical.</p>
           </div>
           <div className="reason-card">
-            <Radio size={32} />
+            <div className="icon-container"><Radio size={32} /></div>
             <h3>Mantener la Transmisión</h3>
             <p>Cubrimos los costos de servidores y licencias para seguir al aire 24/7 sin interrupciones.</p>
           </div>
           <div className="reason-card">
-            <Globe size={32} />
+            <div className="icon-container"><Globe size={32} /></div>
             <h3>Expandir Fronteras</h3>
             <p>Llegamos a paraguayos en todo el mundo, conectándolos con sus raíces a través de la música.</p>
           </div>
