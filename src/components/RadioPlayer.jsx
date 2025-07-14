@@ -11,6 +11,7 @@ import {
 function RadioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(0.7)
+  const [isScrolled, setIsScrolled] = useState(false)
   const audioRef = useRef(null)
 
   const radioStream = '/audio/radio-cultural-stream.mp3' // Stream único
@@ -21,6 +22,42 @@ function RadioPlayer() {
       audioRef.current.volume = volume
     }
   }, [volume])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      const threshold = 50 // Píxeles de scroll antes de ocultar elementos
+      const isSmallScreen = window.innerWidth <= 768
+      setIsScrolled(scrollPosition > threshold && isSmallScreen)
+    }
+
+    const handleResize = () => {
+      const isSmallScreen = window.innerWidth <= 768
+      if (!isSmallScreen) {
+        setIsScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleResize)
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isScrolled && window.innerWidth <= 768) {
+      document.body.style.paddingBottom = '90px'
+    } else {
+      document.body.style.paddingBottom = '0'
+    }
+    
+    return () => {
+      document.body.style.paddingBottom = '0'
+    }
+  }, [isScrolled])
 
   useEffect(() => {
     if (audioRef.current) {
@@ -44,11 +81,11 @@ function RadioPlayer() {
   // Sin navegación de tracks - solo radio stream continuo
 
   return (
-    <div className="radio-player-container">
+    <div className={`radio-player-container ${isScrolled ? 'scrolled' : ''}`}>
       <audio ref={audioRef} />
       
       <div className="radio-player">
-        <div className="player-info">
+        <div className={`player-info ${isScrolled ? 'hidden' : ''}`}>
           <div className="radio-identity">
             <div className="radio-title">
               <h2>Radio Cultural</h2>
