@@ -809,7 +809,8 @@ body {
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center; /* Centra el contenido (icono y texto) */
+  line-height: 0; /* Asegura el centrado vertical perfecto del icono */
   font-size: 1rem;
   font-weight: 500;
   transition: color 0.2s ease-in-out;
@@ -818,11 +819,17 @@ body {
 .play-btn:hover,
 .play-btn:focus {
   color: var(--color-primary);
+  outline: none; /* Elimina el borde al hacer clic/foco */
 }
 
 .play-btn:hover .control-label,
 .play-btn:focus .control-label {
   color: var(--color-primary);
+}
+
+/* Añadimos margen al icono para separarlo del texto sin usar gap */
+.play-btn svg {
+  margin-right: 0.75rem;
 }
 
 /* Etiqueta de texto para los controles */
@@ -2348,9 +2355,19 @@ body {
     justify-content: space-around;
   }
 
-  /* Ocultar etiquetas en móvil para un diseño más limpio */
-  .radio-player:not(.scrolled) .control-label {
-    display: none;
+  .player-controls {
+    display: flex; /* ¡La propiedad que faltaba! */
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  /* En móvil, aseguramos que la etiqueta sea visible y reducimos el margen del icono */
+  .radio-player .control-label {
+    display: inline;
+  }
+
+  .radio-player .play-btn svg {
+    margin-right: 0.5rem;
   }
   
   .radio-identity {
