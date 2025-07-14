@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Calendar, Heart, Mail } from 'lucide-react';
 import RadioPlayer from './RadioPlayer';
@@ -6,40 +6,47 @@ import RadioPlayer from './RadioPlayer';
 function Layout({ children }) {
   const [isMinimized, setIsMinimized] = useState(false);
   const location = useLocation();
+  const lastScrollY = useRef(0);
 
-  // Efecto unificado para manejar la minimización de forma inteligente
+  // Efecto para manejar la minimización con detección de dirección de scroll
   useEffect(() => {
-    const handleScrollAndResize = () => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
       const isSmallScreen = window.innerWidth <= 768;
+
       if (!isSmallScreen) {
         setIsMinimized(false);
         return;
       }
 
-      // Lógica de estado mejorada para evitar parpadeos
-      setIsMinimized(prevIsMinimized => {
-        const isScrolledPastThreshold = window.scrollY > 50;
-        // Si ya está minimizado, solo se expande al volver al inicio
-        if (prevIsMinimized) {
-          return window.scrollY > 10; // Un pequeño umbral para evitar expansiones accidentales
+      // Scroll hacia abajo: minimizar
+      if (currentScrollY > lastScrollY.current) {
+        if (currentScrollY > 50) {
+          setIsMinimized(true);
         }
-        // Si está expandido, se minimiza al pasar el umbral
-        return isScrolledPastThreshold;
-      });
+      } 
+      // Scroll hacia arriba: expandir solo al llegar al tope
+      else {
+        if (currentScrollY < 10) {
+          setIsMinimized(false);
+        }
+      }
+      lastScrollY.current = currentScrollY;
     };
 
-    // Al cambiar de ruta, forzar la minimización en móviles
+    // Al cambiar de ruta, minimizar y reiniciar scroll
     if (window.innerWidth <= 768) {
       setIsMinimized(true);
     }
     window.scrollTo(0, 0);
+    lastScrollY.current = 0;
 
-    window.addEventListener('scroll', handleScrollAndResize);
-    window.addEventListener('resize', handleScrollAndResize);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll); // También re-evaluar en resize
 
     return () => {
-      window.removeEventListener('scroll', handleScrollAndResize);
-      window.removeEventListener('resize', handleScrollAndResize);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
     };
   }, [location.pathname]);
 
