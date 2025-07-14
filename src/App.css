@@ -643,12 +643,13 @@ body {
 }
 
 .radio-player {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
+  display: flex;
   align-items: center;
-  padding: 1.25rem 2rem;
+  justify-content: space-between;
   gap: 1.5rem;
-  min-height: 70px;
+  padding: 1rem 1.5rem;
+  color: var(--color-light);
+  min-height: 90px;
 }
 
 .player-info {
@@ -784,146 +785,112 @@ body {
   font-family: var(--font-primary);
 }
 
-.player-controls {
+/* Contenedor principal para los botones y el volumen */
+.player-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 0.75rem;
-  border-radius: var(--border-radius-lg);
-  backdrop-filter: var(--blur-sm);
-  -webkit-backdrop-filter: var(--blur-sm);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: var(--shadow-lg);
+  gap: 2rem; /* Espacio entre el grupo de play y el de volumen */
 }
 
-.control-btn, .play-btn {
-  background: var(--bg-primary);
-  border: none;
-  color: var(--gray-600);
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-  box-shadow: var(--shadow-sm);
-  width: 60px;
-  height: 60px;
-}
-
-.control-btn svg, .play-btn svg {
-  width: 48px;
-  height: 48px;
-  fill: currentColor;
-}
-
-.play-btn {
-  background: linear-gradient(135deg, var(--azul-paraguayo), #4FC3F7);
-  color: white;
-  width: 70px;
-  height: 70px;
-  box-shadow: var(--shadow-xl);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.play-btn svg {
-  width: 56px;
-  height: 56px;
-  color: white;
-  fill: currentColor;
-}
-
-.control-btn:hover {
-  background: var(--gray-100);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
-.play-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.control-btn:active, .play-btn:active {
-  transform: scale(0.95);
-}
-
+/* Estilo para los grupos individuales (play/pause y volumen) */
+.player-controls,
 .volume-control {
   display: flex;
   align-items: center;
+  gap: 0.75rem; /* Espacio entre icono y texto/slider */
+}
+
+/* Botón de Play/Pause */
+.play-btn {
+  background: none;
+  border: none;
+  color: var(--color-light);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
   gap: 0.75rem;
-  min-width: 170px;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 1rem 1.25rem;
-  border-radius: var(--border-radius-lg);
-  backdrop-filter: var(--blur-sm);
-  -webkit-backdrop-filter: var(--blur-sm);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: var(--shadow-lg);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
 }
 
-.volume-control svg {
-  color: rgba(255, 255, 255, 0.7);
-  width: 40px;
-  height: 40px;
-  fill: currentColor;
+.play-btn:hover,
+.play-btn:focus {
+  color: var(--color-primary);
 }
 
+.play-btn:hover .control-label,
+.play-btn:focus .control-label {
+  color: var(--color-primary);
+}
+
+/* Etiqueta de texto para los controles */
+.control-label {
+  font-size: 0.9rem;
+  color: var(--color-light-muted);
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Estilos para el slider de volumen */
 .volume-slider {
   flex: 1;
-  height: 6px;
+  height: 5px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 3px;
   outline: none;
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
+  min-width: 100px;
 }
 
 .volume-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(135deg, var(--azul-paraguayo), #4FC3F7);
+  width: 16px;
+  height: 16px;
+  background: white;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: var(--shadow-md);
   transition: all 0.2s ease;
-  border: 2px solid white;
+  border: 2px solid var(--color-dark);
 }
 
 .volume-slider::-webkit-slider-thumb:hover {
   transform: scale(1.1);
-  box-shadow: var(--shadow-md);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .volume-slider::-moz-range-thumb {
   width: 16px;
   height: 16px;
-  background: var(--azul-paraguayo);
+  background: white;
   border-radius: 50%;
   cursor: pointer;
   border: none;
-  box-shadow: var(--shadow-sm);
 }
 
 .expand-btn {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
+  border-radius: var(--border-radius);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.75rem;
   transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
   box-shadow: var(--shadow-sm);
-  width: 70px;
-  height: 70px;
-  font-size: 1rem;
-  margin-left: 0.5rem;
+  font-size: var(--text-base);
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  min-height: 60px;
+  font-weight: var(--font-medium);
 }
 
 .expand-btn:hover {
@@ -934,14 +901,9 @@ body {
 }
 
 .expand-btn svg {
-  width: 60px;
-  height: 60px;
-  color: inherit;
+  width: 44px;
+  height: 44px;
   fill: currentColor;
-}
-
-.expand-btn:active {
-  transform: scale(0.95);
 }
 
 /* Expanded Player Styles */
@@ -2369,11 +2331,26 @@ body {
     font-size: 0.55rem;
   }
   
+  .radio-player {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
   .player-info {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: 1rem;
     text-align: center;
+    gap: 1rem;
+  }
+
+  .player-actions {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  /* Ocultar etiquetas en móvil para un diseño más limpio */
+  .radio-player:not(.scrolled) .control-label {
+    display: none;
   }
   
   .radio-identity {
@@ -2402,13 +2379,12 @@ body {
     z-index: 1000;
   }
   
-  .radio-player-container.scrolled .radio-player {
-    display: flex;
+  .radio-player-container.scrolled .player-actions {
     justify-content: center;
-    align-items: center;
-    padding: 1rem 2rem;
-    gap: 2rem;
-    min-height: 70px;
+  }
+
+  .radio-player-container.scrolled .control-label {
+    display: none;
   }
   
   .player-info.hidden {

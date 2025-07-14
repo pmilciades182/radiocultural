@@ -59,23 +59,27 @@ function RadioPlayer({ isMinimized }) {
           </Link>
         </div>
 
-        <div className="player-controls">
-          <button onClick={togglePlay} className="play-btn">
-            {isPlaying ? <Pause size={40} /> : <Play size={40} />}
-          </button>
-        </div>
+        <div className="player-actions">
+          <div className="player-controls">
+            <button onClick={togglePlay} className="play-btn" aria-label={isPlaying ? 'Pausar' : 'Reproducir'}>
+              {isPlaying ? <Pause size={32} /> : <Play size={32} />}
+              <span className="control-label">{isPlaying ? 'Pausar' : 'Escuchar'}</span>
+            </button>
+          </div>
 
-        <div className="volume-control">
-          <Volume2 size={32} />
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={volume}
-            onChange={handleVolumeChange}
-            className="volume-slider"
-          />
+          <div className="volume-control">
+            <Volume2 size={24} />
+            <span className="control-label">Volumen</span>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.1"
+              value={volume}
+              onChange={handleVolumeChange}
+              className="volume-slider"
+            />
+          </div>
         </div>
       </div>
     </div>
