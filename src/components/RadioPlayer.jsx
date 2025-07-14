@@ -1,45 +1,41 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, Pause, Volume2, Heart } from 'lucide-react';
+import { usePlaylist } from '../hooks/usePlaylist';
 import './RadioPlayer.css';
 
-const RADIO_STREAM_URL = '/audio/radio-cultural-stream.mp3';
-const CURRENT_PROGRAM = 'Música Folclórica Paraguaya en Vivo';
-
 function RadioPlayer({ isMinimized }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.7);
-  const audioRef = useRef(null);
+  const {
+    currentTrack,
+    isPlaying,
+    volume,
+    audioRef,
+    togglePlay,
+    changeVolume
+  } = usePlaylist();
 
-  // Efecto para manejar la lógica del audio (play, pause, volumen)
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    audio.src = RADIO_STREAM_URL;
-    audio.loop = true;
-    audio.volume = volume;
-
-    if (isPlaying) {
-      audio.play().catch(e => console.error("Error al reproducir audio:", e));
-    } else {
-      audio.pause();
-    }
-  }, [isPlaying, volume]);
-
-
-
-  const togglePlay = useCallback(() => {
-    setIsPlaying(prevIsPlaying => !prevIsPlaying);
-  }, []);
-
-  const handleVolumeChange = useCallback((e) => {
-    setVolume(parseFloat(e.target.value));
-  }, []);
+  const handleVolumeChange = (e) => {
+    changeVolume(parseFloat(e.target.value));
+  };
 
   return (
     <div className={`radio-player-container ${isMinimized ? 'scrolled' : ''}`}>
-      <audio ref={audioRef} />
+      {/* Regular audio element for direct streams */}
+      {currentTrack?.type !== 'soundcloud' && <audio ref={audioRef} />}
+      
+      {/* SoundCloud iframe embed */}
+      {currentTrack?.type === 'soundcloud' && (
+        <div className="soundcloud-embed" style={{display: 'none'}}>
+          <iframe
+            id="soundcloud-widget"
+            width="100%"
+            height="166"
+            scrolling="no"
+            frameBorder="no"
+            allow="autoplay"
+            src={currentTrack.embedUrl}
+          />
+        </div>
+      )}
 
       <div className="radio-player">
         <div className={`player-info ${isMinimized ? 'hidden' : ''}`}>
@@ -48,7 +44,6 @@ function RadioPlayer({ isMinimized }) {
               <h2>Radio Cultural</h2>
               <p>Desde Limpio, Paraguay</p>
             </div>
-            <div className="track-name">{CURRENT_PROGRAM}</div>
           </div>
 
           <Link to="/donaciones" className="donation-link">
@@ -75,11 +70,12 @@ function RadioPlayer({ isMinimized }) {
               type="range"
               min="0"
               max="1"
-              step="0.1"
+              step="0.01"
               value={volume}
               onChange={handleVolumeChange}
               className="volume-slider"
             />
+            <span className="volume-value">{Math.round(volume * 100)}%</span>
           </div>
         </div>
       </div>

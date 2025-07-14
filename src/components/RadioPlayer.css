@@ -275,6 +275,99 @@
   letter-spacing: -0.01em;
   line-height: 1.2;
   font-family: var(--font-primary);
+  margin-bottom: 0.5rem;
+}
+
+.error-message {
+  color: #ff6b6b !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.loading-message {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* SoundCloud embed styling */
+.soundcloud-embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.soundcloud-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Progress bar styles */
+.track-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.time-current,
+.time-duration {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  min-width: 35px;
+}
+
+.progress-bar-container {
+  flex: 1;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--color-primary);
+}
+
+.progress-bar::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--color-primary);
+}
+
+.progress-bar::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid var(--color-primary);
 }
 
 /* Contenedor principal para los botones y el volumen */
@@ -285,13 +378,27 @@
 }
 
 /* Estilo para los grupos individuales (play/pause y volumen) */
-.player-controls,
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .volume-control {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 4px;
+}
+
+.volume-value {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  min-width: 35px;
+  text-align: center;
 }
 
 /* Botón de Play/Pause */
@@ -309,6 +416,27 @@
   font-size: 1rem;
   font-weight: 500;
   transition: color 0.2s ease-in-out;
+}
+
+/* Botones de control (anterior/siguiente) */
+.control-btn {
+  background: none;
+  border: none;
+  color: var(--color-light);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease-in-out;
+  border-radius: 50%;
+}
+
+.control-btn:hover,
+.control-btn:focus {
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
 }
 
 .play-btn:hover,
