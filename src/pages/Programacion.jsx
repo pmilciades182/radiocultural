@@ -1,4 +1,10 @@
+import useSeo from '../hooks/useSeo';
+
 function Programacion() {
+  useSeo({
+    title: 'Programación - Radio Cultural Paraguay',
+    description: 'Conocé nuestra grilla de programación 24 horas. Descubrí los programas de música folclórica, polcas, guaranias y la cultura de Paraguay para cada momento del día.'
+  });
   const horarios = [
     { hora: "00:00 - 05:00", programa: "Noches de Purahéi", descripcion: "Música instrumental y cantada para la calma nocturna." },
     { hora: "05:00 - 07:00", programa: "Amanecer en el Campo", descripcion: "Las primeras polcas y guaranias para empezar el día con energía." },

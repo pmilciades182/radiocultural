@@ -1,7 +1,12 @@
 import { Music, Radio, Heart } from 'lucide-react';
 import InstallPrompt from '../components/InstallPrompt';
+import useSeo from '../hooks/useSeo';
 
 function Home() {
+  useSeo({
+    title: 'Radio Cultural Paraguay - Música y Tradición Guaraní',
+    description: 'Escuchá la mejor música folclórica paraguaya, polcas, guaranias y toda la riqueza cultural de nuestro país. Radio Cultural Paraguay preserva y difunde nuestras tradiciones musicales las 24 horas del día.'
+  });
   return (
     <div className="home-page">
       <InstallPrompt />

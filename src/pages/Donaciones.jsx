@@ -1,6 +1,11 @@
-import { Heart, Music, Radio, Users, Globe, Headphones } from 'lucide-react'
+import { Heart, Music, Radio, Users, Globe, Headphones } from 'lucide-react';
+import useSeo from '../hooks/useSeo';
 
 function Donaciones() {
+  useSeo({
+    title: 'Apoyá a Radio Cultural - Donaciones',
+    description: 'Tu apoyo mantiene viva la música paraguaya y nos ayuda a llevar nuestra cultura a cada rincón del planeta. Cada donación es un pilar fundamental para nuestra misión.'
+  });
   return (
     <div className="donaciones-page">
       <div className="donation-hero">
