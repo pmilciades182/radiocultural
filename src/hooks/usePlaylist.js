@@ -32,6 +32,9 @@ export function usePlaylist() {
   const playlist = playlistData.playlist;
   const currentTrack = playlist[currentTrackIndex];
 
+  // Auto-start first track when component mounts (removed to fix pause issue)
+  // User must manually start playback
+
   // Initialize SoundCloud widget
   useEffect(() => {
     if (currentTrack?.type === 'soundcloud') {
@@ -56,7 +59,8 @@ export function usePlaylist() {
           });
 
           widget.bind(SC.Widget.Events.FINISH, () => {
-            setIsPlaying(false);
+            // Auto-advance to next track
+            nextTrack();
           });
 
           widget.bind(SC.Widget.Events.ERROR, () => {
@@ -84,7 +88,7 @@ export function usePlaylist() {
     };
 
     const handleEnded = () => {
-      // Move to next track
+      // Auto-advance to next track
       nextTrack();
     };
 
@@ -108,14 +112,13 @@ export function usePlaylist() {
       console.error("Audio error:", e);
       setError(`Cannot load audio: ${currentTrack?.title || 'Unknown track'}`);
       setIsLoading(false);
-      setIsPlaying(false);
       
-      // Auto-skip to next track on error after a delay
+      // Auto-skip to next track on error immediately for continuous playback
       setTimeout(() => {
         if (playlist.length > 1) {
-          nextTrack();
+          nextTrack(); // This will also set isPlaying to true
         }
-      }, 2000);
+      }, 1000);
     };
 
     audio.addEventListener('loadedmetadata', handleLoadedMetadata);
@@ -169,27 +172,50 @@ export function usePlaylist() {
     }
   }, [currentTrackIndex, currentTrack, volume]);
 
-  // Control playback state
+  // Auto-start playback when track changes (for continuous loop)
+  useEffect(() => {
+    if (currentTrack && isPlaying) {
+      // Small delay to ensure audio is loaded
+      const timer = setTimeout(() => {
+        if (currentTrack.type === 'soundcloud' && scWidget) {
+          scWidget.play();
+        } else if (audioRef.current && currentTrack.streamUrl) {
+          audioRef.current.play().catch(e => {
+            console.error("Auto-play failed:", e);
+            // If auto-play fails, try next track
+            setTimeout(() => nextTrack(), 1000);
+          });
+        }
+      }, 300);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [currentTrackIndex, currentTrack, scWidget]);
+
+  // Control playback state for regular audio
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || currentTrack?.type === 'soundcloud') return;
 
-    if (isPlaying) {
+    if (isPlaying && currentTrack?.streamUrl) {
       audio.play().catch(e => {
         console.error("Error playing audio:", e);
-        setIsPlaying(false);
+        // Try next track on error
+        setTimeout(() => nextTrack(), 1000);
       });
     } else {
       audio.pause();
     }
-  }, [isPlaying]);
+  }, [isPlaying, currentTrack]);
 
   const togglePlay = useCallback(() => {
     if (currentTrack?.type === 'soundcloud' && scWidget) {
       if (isPlaying) {
         scWidget.pause();
+        setIsPlaying(false);
       } else {
         scWidget.play();
+        setIsPlaying(true);
       }
     } else {
       setIsPlaying(prev => !prev);
@@ -198,10 +224,14 @@ export function usePlaylist() {
 
   const nextTrack = useCallback(() => {
     setCurrentTrackIndex(prev => (prev + 1) % playlist.length);
+    // Keep playing when auto-advancing
+    setIsPlaying(true);
   }, [playlist.length]);
 
   const previousTrack = useCallback(() => {
     setCurrentTrackIndex(prev => (prev - 1 + playlist.length) % playlist.length);
+    // Keep playing when manually navigating
+    setIsPlaying(true);
   }, [playlist.length]);
 
   const changeVolume = useCallback((newVolume) => {
