@@ -7,13 +7,13 @@
 
 .hero {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 2.5rem 2rem;
   background: var(--bg-glass);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius-xl);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   box-shadow: var(--shadow-xl);
   position: relative;
   overflow: hidden;
@@ -75,7 +75,7 @@
 }
 
 .features {
-  margin: 3rem 0;
+  margin: 2rem 0;
 }
 
 .feature-grid {
@@ -126,10 +126,10 @@
   background: var(--bg-glass);
   backdrop-filter: var(--blur-sm);
   -webkit-backdrop-filter: var(--blur-sm);
-  padding: 3rem;
+  padding: 2rem;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
-  margin-top: 3rem;
+  margin-top: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -149,7 +149,7 @@
 
 /* Radio Showcase Section */
 .radio-showcase {
-  margin: 3rem 0;
+  margin: 2rem 0;
   display: flex;
   justify-content: center;
 }
@@ -267,58 +267,73 @@
   animation: pulse 2s infinite;
 }
 
-/* Estilos para la sección de información de la Polka */
-.polka-info {
-  padding: 4rem var(--padding-horizontal);
-  background-color: var(--color-background);
-  text-align: left;
-  max-width: 900px;
-  margin: 2rem auto;
-  border-radius: var(--border-radius-large);
-  border: 1px solid var(--color-border);
-}
-
-.polka-info h2 {
-  font-size: 2.5rem;
-  font-family: var(--font-display);
-  color: var(--color-primary);
+/* Cultural Highlight Section */
+.cultural-highlight {
+  background: var(--bg-glass);
+  backdrop-filter: var(--blur-sm);
+  -webkit-backdrop-filter: var(--blur-sm);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  margin: 2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
-  margin-bottom: 2rem;
 }
 
-.polka-info h3 {
-  font-size: 1.75rem;
-  font-family: var(--font-heading);
-  color: var(--color-text-primary);
-  margin-top: 2.5rem;
+.cultural-highlight h2 {
+  font-family: var(--font-display);
+  background: linear-gradient(135deg, var(--rojo-paraguayo), var(--azul-paraguayo));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
-  border-bottom: 2px solid var(--color-primary);
-  padding-bottom: 0.5rem;
+  font-weight: var(--font-bold);
+  font-size: var(--text-2xl);
+  letter-spacing: -0.02em;
 }
 
-.polka-info p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  font-family: var(--font-body);
-  color: var(--color-text-secondary);
-  margin-bottom: 1.5rem;
+.cultural-highlight > p {
+  color: var(--gray-600);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.polka-info .feature-grid {
-  margin-top: 2rem;
-  gap: 1.5rem;
+.cultural-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-.polka-info .feature-card {
-  background: var(--color-surface);
+.cultural-card {
+  background: rgba(255, 255, 255, 0.6);
   padding: 1.5rem;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.polka-info .feature-card h4 {
+.cultural-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+.cultural-card h4 {
+  color: var(--gray-800);
+  font-weight: var(--font-semibold);
   margin-bottom: 0.5rem;
-  color: var(--color-text-primary);
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-size: var(--text-base);
+}
+
+.cultural-card p {
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* Responsive Design */
@@ -393,7 +408,16 @@
   }
   
   .about {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .cultural-highlight {
+    padding: 1.5rem;
+  }
+  
+  .cultural-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
   .radio-features {
@@ -412,7 +436,11 @@
     font-size: var(--text-lg);
   }
   
-  .feature-card, .about {
+  .feature-card, .about, .cultural-highlight {
     padding: 1.5rem;
+  }
+  
+  .cultural-card {
+    padding: 1.25rem;
   }
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Calendar, Heart, Mail } from 'lucide-react';
+import { Home, Calendar, Heart, Mail, Instagram, Youtube, Facebook, MessageCircle } from 'lucide-react';
 import RadioPlayer from './RadioPlayer';
 import './Layout.css';
 
@@ -100,7 +100,28 @@ function Layout({ children }) {
       
       <footer className="footer">
         <div className="container">
-          <p>&copy; 2024 Radio Cultural Paraguay - Preservando nuestra cultura guaraní</p>
+          <div className="footer-content">
+            <div className="social-links">
+              <a href="#" className="social-link" aria-label="Instagram">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="social-link" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+                </svg>
+              </a>
+              <a href="#" className="social-link" aria-label="YouTube">
+                <Youtube size={20} />
+              </a>
+              <a href="#" className="social-link" aria-label="Facebook">
+                <Facebook size={20} />
+              </a>
+              <a href="#" className="social-link" aria-label="WhatsApp">
+                <MessageCircle size={20} />
+              </a>
+            </div>
+            <p className="footer-text">&copy; 2024 Radio Cultural Paraguay - Preservando nuestra cultura guaraní</p>
+          </div>
         </div>
       </footer>
     </div>

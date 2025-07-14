@@ -84,44 +84,27 @@ function Home() {
         </p>
       </section>
 
-      <section className="polka-info">
-        <h2>La Polka Paraguaya: El Alma de Nuestra Música</h2>
+      <section className="cultural-highlight">
+        <h2>La Polka Paraguaya</h2>
         <p>
-          La polka paraguaya es un género de música popular de carácter vocal o instrumental que combina ritmos ternarios, binarios y síncopas. Su nombre proviene de la polca bohemia europea, pero con el tiempo adquirió una identidad propia y única, convirtiéndose en la máxima expresión de nuestro acervo cultural. En guaraní, se la conoce como <strong>purahéi</strong>.
+          La polka paraguaya es la máxima expresión de nuestro acervo cultural. 
+          Combina ritmos ternarios, binarios y síncopas, creando un sonido único que 
+          representa el alma de nuestra música. En guaraní, se la conoce como <strong>purahéi</strong>.
         </p>
-
-        <h3>Un Poco de Historia</h3>
-        <p>
-          Nacida en el siglo XIX, la polka paraguaya tiene sus raíces en las danzas de salón europeas que llegaron a Asunción. Sin embargo, el pueblo paraguayo la adoptó y transformó, dándole un ritmo y un sentir característicos. Las primeras composiciones, como <strong>"Campamento Cerro León"</strong> y <strong>"Alfonso Loma"</strong>, son tesoros anónimos de nuestra historia musical.
-        </p>
-
-        <h3>Características Únicas</h3>
-        <p>
-          El ritmo de 6/8 y la "polirritmia simultánea" (dos tiempos en la melodía y tres en el acompañamiento) le dan su cadencia inconfundible. Se interpreta tradicionalmente con arpa paraguaya y guitarra criolla, aunque también se han incorporado otros instrumentos, creando un sonido que es a la vez nostálgico y vibrante.
-        </p>
-
-        <h3>Variantes de la Polka</h3>
-        <div className="feature-grid">
-          <div className="feature-card">
-            <h4>Polka Tradicional</h4>
-            <p>La original, interpretada con arpa y guitarra, el corazón del folclore paraguayo.</p>
+        <div className="cultural-grid">
+          <div className="cultural-card">
+            <h4>Historia</h4>
+            <p>Nacida en el siglo XIX, fusiona las danzas europeas con el sentir paraguayo.</p>
           </div>
-          <div className="feature-card">
-            <h4>Polka Syryry</h4>
-            <p>De movimiento más moderado y deslizado, perfecta para el baile social.</p>
+          <div className="cultural-card">
+            <h4>Características</h4>
+            <p>Ritmo de 6/8 con arpa paraguaya y guitarra criolla como instrumentos principales.</p>
           </div>
-          <div className="feature-card">
-            <h4>Polka Popó</h4>
-            <p>Ligera y graciosa, con pequeños saltos que le dan un aire festivo y alegre.</p>
+          <div className="cultural-card">
+            <h4>Variantes</h4>
+            <p>Polka tradicional, Syryry y Popó, cada una con su propio estilo y cadencia.</p>
           </div>
         </div>
-
-        <h3>Grandes Exponentes</h3>
-        <p>
-          <strong>Compositores:</strong> Emiliano R. Fernández, Mauricio Cardozo Ocampo, Herminio Giménez, Maneco Galeano.
-          <br />
-          <strong>Intérpretes:</strong> Luis Alberto del Paraná, Juan Cancio Barreto, Berta Rojas, Grupo Generación.
-        </p>
       </section>
     </div>
   )
