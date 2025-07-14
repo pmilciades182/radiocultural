@@ -1,6 +1,7 @@
 import { Music, Radio, Heart } from 'lucide-react';
 import InstallPrompt from '../components/InstallPrompt';
 import useSeo from '../hooks/useSeo';
+import './Home.css';
 
 function Home() {
   useSeo({

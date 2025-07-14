@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Calendar, Heart, Mail } from 'lucide-react';
 import RadioPlayer from './RadioPlayer';
+import './Layout.css';
 
 function Layout({ children }) {
   const [isMinimized, setIsMinimized] = useState(false);

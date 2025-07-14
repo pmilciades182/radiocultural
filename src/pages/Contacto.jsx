@@ -1,5 +1,6 @@
 import ChatContact from '../components/ChatContact';
 import useSeo from '../hooks/useSeo';
+import './Contacto.css';
 
 function ContactoPage() {
   useSeo({

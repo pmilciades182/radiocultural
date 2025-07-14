@@ -1,4 +1,5 @@
 import useSeo from '../hooks/useSeo';
+import './Programacion.css';
 
 function Programacion() {
   useSeo({

@@ -1,5 +1,6 @@
 import { Heart, Music, Radio, Users, Globe, Headphones } from 'lucide-react';
 import useSeo from '../hooks/useSeo';
+import './Donaciones.css';
 
 function Donaciones() {
   useSeo({

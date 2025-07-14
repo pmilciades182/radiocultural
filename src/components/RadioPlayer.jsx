@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, Pause, Volume2, Heart } from 'lucide-react';
+import './RadioPlayer.css';
 
 const RADIO_STREAM_URL = '/audio/radio-cultural-stream.mp3';
 const CURRENT_PROGRAM = 'Música Folclórica Paraguaya en Vivo';

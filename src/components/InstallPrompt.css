@@ -1,0 +1,84 @@
+/* --- Estilos para el Banner de Instalación (PWA) --- */
+.install-prompt-banner {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  background: #f4f4f5;
+  color: var(--color-darker);
+  border-radius: 0;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  animation: fade-in 0.6s ease-out forwards;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.install-prompt-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.install-prompt-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius);
+}
+
+.install-prompt-text strong {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.install-prompt-text p {
+  font-size: 0.875rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.install-prompt-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.install-prompt-actions button {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  background-color: #d90000;
+}
+
+.btn-install {
+  background: var(--color-primary);
+  color: white;
+  border: 1px solid var(--color-primary);
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.btn-install:hover {
+  background: #d90000;
+  color: white;
+  border-color: #d90000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './InstallPrompt.css';
 
 function InstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
