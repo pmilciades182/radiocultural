@@ -34,10 +34,18 @@ function Layout({ children }) {
       lastScrollY.current = currentScrollY;
     };
 
-    // Al cambiar de ruta, minimizar y reiniciar scroll
-    if (window.innerWidth <= 768) {
-      setIsMinimized(true);
+    // Al cambiar de ruta, gestionar estado inicial del reproductor
+    const isHomepage = location.pathname === '/';
+    const isSmallScreen = window.innerWidth <= 768;
+
+    if (isHomepage) {
+      setIsMinimized(false); // Siempre expandido en la página de inicio
+    } else if (isSmallScreen) {
+      setIsMinimized(true); // Minimizado en otras páginas en móvil
+    } else {
+      setIsMinimized(false); // Expandido en otras páginas en desktop
     }
+
     window.scrollTo(0, 0);
     lastScrollY.current = 0;
 
