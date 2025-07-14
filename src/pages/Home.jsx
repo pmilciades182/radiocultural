@@ -1,8 +1,10 @@
-import { Music, Radio, Heart } from 'lucide-react'
+import { Music, Radio, Heart } from 'lucide-react';
+import InstallPrompt from '../components/InstallPrompt';
 
 function Home() {
   return (
     <div className="home-page">
+      <InstallPrompt />
       <section className="hero">
         <h1>Bienvenidos a Radio Cultural</h1>
         <p className="hero-subtitle">
