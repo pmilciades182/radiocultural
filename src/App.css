@@ -796,8 +796,10 @@ body {
 .player-controls,
 .volume-control {
   display: flex;
-  align-items: center;
-  gap: 0.75rem; /* Espacio entre icono y texto/slider */
+  flex-direction: column; /* Apila icono y texto verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  gap: 4px; /* Espacio entre icono y texto */
 }
 
 /* Botón de Play/Pause */
@@ -808,9 +810,10 @@ body {
   cursor: pointer;
   padding: 0;
   display: flex;
+  flex-direction: column; /* Hereda la dirección, pero lo especificamos por claridad */
   align-items: center;
-  justify-content: center; /* Centra el contenido (icono y texto) */
-  line-height: 0; /* Asegura el centrado vertical perfecto del icono */
+  justify-content: center;
+  gap: 4px;
   font-size: 1rem;
   font-weight: 500;
   transition: color 0.2s ease-in-out;
@@ -827,9 +830,11 @@ body {
   color: var(--color-primary);
 }
 
-/* Añadimos margen al icono para separarlo del texto sin usar gap */
-.play-btn svg {
-  margin-right: 0.75rem;
+/* Aumentamos el tamaño de los iconos para mejor visibilidad y área de toque */
+.player-controls svg,
+.volume-control svg {
+  width: 32px;
+  height: 32px;
 }
 
 /* Etiqueta de texto para los controles */
@@ -2361,13 +2366,10 @@ body {
     justify-content: center;
   }
 
-  /* En móvil, aseguramos que la etiqueta sea visible y reducimos el margen del icono */
+    /* En móvil, nos aseguramos de que el texto sea visible y ajustamos el tamaño de fuente */
   .radio-player .control-label {
     display: inline;
-  }
-
-  .radio-player .play-btn svg {
-    margin-right: 0.5rem;
+    font-size: 0.75rem; /* Hacemos el texto un poco más pequeño en móvil */
   }
   
   .radio-identity {
