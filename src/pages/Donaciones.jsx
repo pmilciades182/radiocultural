@@ -55,12 +55,11 @@ function Donaciones() {
               <button className="amount-btn">$100 USD</button>
               <button className="amount-btn custom">Monto personalizado</button>
             </div>
+            <button className="donate-button">Donar Ahora</button>
           </div>
           
           <div className="donation-card monthly featured">
-            <div className="featured-badge">
-              <span>Más popular</span>
-            </div>
+
             <div className="card-header">
               <Users size={40} className="card-icon" />
               <h3>Apoyo Mensual</h3>
@@ -71,29 +70,36 @@ function Donaciones() {
                 <div className="tier-price">$5 USD/mes</div>
                 <div className="tier-name">Amigo Cultural</div>
                 <div className="tier-benefits">
-                  <span>• Acceso a contenido exclusivo</span>
-                  <span>• Newsletter mensual</span>
+                  <ul>
+                    <li>Acceso a contenido exclusivo</li>
+                    <li>Newsletter mensual</li>
+                  </ul>
                 </div>
               </div>
               <div className="tier popular">
                 <div className="tier-price">$15 USD/mes</div>
                 <div className="tier-name">Guardián Cultural</div>
                 <div className="tier-benefits">
-                  <span>• Todo lo anterior</span>
-                  <span>• Reconocimiento en la radio</span>
-                  <span>• Requests prioritarios</span>
+                  <ul>
+                    <li>Todo lo anterior</li>
+                    <li>Reconocimiento en la radio</li>
+                    <li>Requests prioritarios</li>
+                  </ul>
                 </div>
               </div>
               <div className="tier">
                 <div className="tier-price">$30 USD/mes</div>
                 <div className="tier-name">Embajador Cultural</div>
                 <div className="tier-benefits">
-                  <span>• Todo lo anterior</span>
-                  <span>• Merchandising exclusivo</span>
-                  <span>• Llamadas con los DJs</span>
+                  <ul>
+                    <li>Todo lo anterior</li>
+                    <li>Merchandising exclusivo</li>
+                    <li>Acceso a eventos exclusivos</li>
+                  </ul>
                 </div>
               </div>
             </div>
+            <button className="donate-button">Suscribirme</button>
           </div>
         </div>
       </section>
