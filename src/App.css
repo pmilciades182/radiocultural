@@ -2191,7 +2191,7 @@ body {
 
 /* Ajustes para el indicador 'en vivo' en la página de programación */
 .programacion-page .live-note {
-  background-color: var(--color-surface);
+  background-color: #FF3B30;
   padding: 2rem;
   border-radius: var(--border-radius-large);
   margin-top: 2rem;
